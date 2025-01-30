@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Profile Picture</title>
+</head>
+<body>
+    <main>
+        <div>
+            <img src="./public/passport_photo[1] (1) (2).jpg" alt="Profil picture" data-testid="profilePicture">
+            <h2 data-testid="fullName">APIPAWE KATOTO Daniel</h2>
+            <p data-testid="jobTitle" class="profession">Web Developer</p>
+        </div><br>
+        <div class="details"> 
+            <p>I am a Web Developer, with a strong fundation in HTML, 
+                CSS, JavaScript, React.js,Angular, Node.js and Express.js.
+            </p><br>
+            <p data-testid="currentLocation">Based in Kampala Uganda</p>
+            <p data-testid="emailAddress">Email Address: katotodan@gmail.com</p> 
+            <label>Find me on</label>
+            <a href="https://www.linkedin.com/in/apipawe-katoto-daniel-68a94422b/" data-testid="socialLinks">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://x.com/DanielKatoto" data-testid="socialLinks">
+                <i class="fa-solid fa-x"></i>
+            </a>
+            <p>
+                <label>Current time</label>
+                <span data-testid="currentTimeUTC"></span>
+            </p><br>
+            
+        </div>
+        <button>Show More</button>
+    </main>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
