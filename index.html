@@ -9,31 +9,70 @@
 </head>
 <body>
     <main>
-        <div>
-            <img src="./public/passport_photo[1] (1) (2).jpg" alt="Profil picture" data-testid="profilePicture">
-            <h2 data-testid="fullName">APIPAWE KATOTO Daniel</h2>
-            <p data-testid="jobTitle" class="profession">Web Developer</p>
-        </div><br>
-        <div class="details"> 
-            <p>I am a Web Developer, with a strong fundation in HTML, 
-                CSS, JavaScript, React.js,Angular, Node.js and Express.js.
-            </p><br>
-            <p data-testid="currentLocation">Based in Kampala Uganda</p>
-            <p data-testid="emailAddress">Email Address: katotodan@gmail.com</p> 
-            <label>Find me on</label>
-            <a href="https://www.linkedin.com/in/apipawe-katoto-daniel-68a94422b/" data-testid="socialLinks">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="https://x.com/DanielKatoto" data-testid="socialLinks">
-                <i class="fa-solid fa-x"></i>
-            </a>
-            <p>
-                <label>Current time</label>
-                <span data-testid="currentTimeUTC"></span>
-            </p><br>
-            
-        </div>
-        <button>Show More</button>
+        <article data-testid="test-profile-card">
+            <div>
+                <figure>
+                    <img src="./public/passport_photo[1] (1) (2).jpg" alt="Profil picture" data-testid="test-user-avatar">
+                </figure>
+                <h2 data-testid="test-user-name">APIPAWE KATOTO Daniel</h2>
+                <p class="profession">Web Developer</p>
+
+                
+                
+                
+            </div>
+            <div class="details">
+                <p data-testid="test-user-bio">
+                    I am a Web Developer, with a strong fundation in HTML, 
+                    CSS, JavaScript, React.js,Angular, Node.js and Express.js.
+                </p><br>
+
+                <section>
+                    <h4>Hobbies</h4>
+                    <ul data-testid="test-user-hobbies">
+                        <li>Reading</li>
+                        <li>Traveling</li>
+                        <li>Coding</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Dislikes</h4>
+                    <ul data-testid="test-user-dislikes">
+                        <li>Spam Emails</li>
+                        <li>Slow Internet</li>
+                        <li>Procrastination</li>
+                    </ul>
+                </section>
+                
+                <div class="social-links-container">
+                    <p>Find me on</p>
+                    <ul class="social-links">
+                        <li data-testid="test-user-social-linkedin">
+                            <a href="https://www.linkedin.com/in/apipawe-katoto-daniel-68a94422b/" data-testid="socialLinks"
+                            target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li data-testid="test-user-social-twitter">
+                            <a href="https://x.com/DanielKatoto" data-testid="socialLinks"
+                            target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-x"></i>
+                            </a>
+                        </li>
+                    
+                    </ul>
+
+                </div>
+                
+
+                <div class="current-time">
+                    <label>Current time in milliseconds</label>
+                    <span data-testid="test-user-time" class="current-time"></span>
+                </div>
+
+            </div>
+            <button>More</button> 
+        </article>   
     </main>
 
 

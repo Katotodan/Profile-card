@@ -4,18 +4,23 @@ const details = document.querySelector(".details")
 let showDetail = false
 
 
-currentTime.innerHTML = new Date().toISOString()
+
+currentTime.innerHTML = Date.now()
 setInterval(() =>{
-    currentTime.innerHTML = new Date().toISOString()
+    currentTime.innerHTML = Date.now()
 }, 1000)
 
 showMoreBtn.addEventListener("click", ()=>{
     if(showDetail){
-        details.style.display = "none"
-        showMoreBtn.innerHTML = "Show more"
+        details.style.visibility = "hidden"
+        details.style.height = "1px"
+        details.style.overflow = "hidden"
+        showMoreBtn.innerHTML = "More"
     }else{
-        details.style.display = "block"
-        showMoreBtn.innerHTML = "Show less"
+        details.style.visibility = "visible"
+        details.style.height = "auto"
+        details.style.overflow = "visible"
+        showMoreBtn.innerHTML = "Hide"
     }
     showDetail = !showDetail
 })

@@ -5,22 +5,20 @@
 }
 body{
     display: flex;
-    align-items: center;
-    /* justify-items: center; */
+    padding: 3rem 0;
     justify-content: center;
-    min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
-main{
+article{
     /* margin: 0 auto; */
     box-shadow: -3px 1px 42px -2px rgba(0,0,0,0.28);
     -webkit-box-shadow: -3px 1px 42px -2px rgba(0,0,0,0.28);
     -moz-box-shadow: -3px 1px 42px -2px rgba(0,0,0,0.28);
     width: 600px;
     height: auto;
-    overflow: hidden;
-    padding: 0.5rem;    
+    padding: 0.5rem 0.75rem;  
+    border-radius: 10px;  
 }
 
 main img {
@@ -34,21 +32,67 @@ main img {
     margin-bottom: 0.75rem;
     object-fit: cover;
 }
+h2{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
 .profession{
     font-weight: 900;
     color: rgb(90, 79, 79);
-
+    text-align: center;
+    margin-bottom: 0.5rem;
 }
-.details{
-    display: none;
+/* .details{
+    visibility: hidden;
+    height: 1px;
+    overflow: hidden;
+} */
+section{
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+section li {
+  list-style: none;
+}
+
+/* 2. Use a pseudo-element to insert the dash */
+section li::before {
+  /* Inserts the dash character */
+  content: "- "; /* Use an en dash or em dash for better spacing */
+
+  /* Optional: Adjust position for better alignment */
+  color: #333; /* Make the dash a specific color */
+}
+.social-links-container{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.social-links{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    justify-content: left;
+}
+.social-links li{
+    list-style: none;
+}
+.social-links a{
+    text-decoration: none;
+    color: rgb(102, 102, 223);
+}
+.current-time{
+    margin: 0.5rem 0;
 }
 button{
     background-color: rgb(102, 102, 223);
     padding: 0.5rem 1rem;
-    outline: none;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    font-size: larger;
 }
 i{
     display: inline-block;
@@ -58,23 +102,28 @@ i{
 }
 
 @media screen and (max-width: 800px) {
-    main{
+    body{
+        padding: 1.5rem 0;
+    }
+    article{
         box-shadow: -200px -200px 0px -200px rgba(0,0,0,0.28);
         -webkit-box-shadow: -200px -200px 0px -200px rgba(0,0,0,0.28);
         -moz-box-shadow: -200px -200px 0px -200px rgba(0,0,0,0.28); 
+        border-radius: 5px; 
     }
 }
 
 
 @media screen and (max-width: 600px) {
     body{
+        padding: 0;
         display: block;
     }
-    main{
+    article{
         width:100%;
-        min-height: 100%;
-        overflow: hidden;
-        padding: 0.5rem;    
+        height: auto;
+        padding: 0.5rem; 
+        border-radius: 0;    
     }
     main img {
         margin-top: 0.75rem;
