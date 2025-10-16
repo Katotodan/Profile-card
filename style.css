@@ -43,11 +43,11 @@ h2{
     text-align: center;
     margin-bottom: 0.5rem;
 }
-/* .details{
+.details{
     visibility: hidden;
     height: 1px;
     overflow: hidden;
-} */
+}
 section{
     margin-bottom: 1rem;
     line-height: 1.5;
@@ -81,7 +81,7 @@ section li::before {
 }
 .social-links a{
     text-decoration: none;
-    color: rgb(102, 102, 223);
+    color: black;
 }
 .current-time{
     margin: 0.5rem 0;
@@ -93,6 +93,7 @@ button{
     border: none;
     cursor: pointer;
     font-size: larger;
+    color: black;
 }
 i{
     display: inline-block;
