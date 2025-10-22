@@ -1,0 +1,129 @@
+/* About page styles - clean, responsive, accessible */
+:root{
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f172a;
+  --accent: #2563eb; /* blue-600 */
+  --radius: 12px;
+  --max-width: 900px;
+  --gap: 1rem;
+  --container-pad: 1.25rem;
+  --shadow: 0 6px 18px rgba(12, 18, 28, 0.06);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+}
+
+main[data-testid="test-about-page"]{
+  max-width:var(--max-width);
+  margin:1rem auto;
+  padding:var(--container-pad);
+  min-height: 100dvh;
+  height: auto;
+}
+
+h1{
+  font-size:clamp(1.6rem, 2.4vw, 2.25rem);
+  color:var(--text);
+}
+
+/* Card-like container for sections */
+section{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:0.5rem;
+  margin:0 0 0.5rem 0;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(15,23,42,0.04);
+}
+
+section h2{
+  margin:0 0 0.5rem 0;
+  font-size:1.05rem;
+  color:var(--accent);
+}
+
+section p, section ul{
+  margin:0;
+  color:var(--muted);
+  font-size:0.98rem;
+}
+
+/* Lists with friendly bullets */
+ul[data-testid], ul{
+  padding-left:1.25rem;
+}
+
+ul li{
+  margin:0.4rem 0;
+}
+div a{
+    display: inline-block;
+    background-color: rgb(102, 102, 223);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: larger;
+    color: black;
+    text-decoration: none;
+}
+
+/* Emphasize important inline text */
+strong{color:var(--text)}
+
+/* Layout for larger screens: two-column grid for certain sections */
+@media (min-width:760px){
+  main[data-testid="test-about-page"]{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:var(--gap);
+    align-items:start;
+  }
+
+  /* Make the main bio span both columns */
+  main[data-testid="test-about-page"] > section:first-of-type{
+    grid-column:1 / -1;
+  }
+  main[data-testid="test-about-page"] > section:nth-child(3),
+  main[data-testid="test-about-page"] > section:nth-child(4),
+  main[data-testid="test-about-page"] > section:nth-child(5),
+  main[data-testid="test-about-page"] > section:nth-child(6){
+    height: 20rem;
+  }
+  section{
+    padding:0.75rem;
+  }
+}
+
+
+/* Focus states for accessibility */
+:focus{
+  outline:none;
+}
+
+a:focus, button:focus, input:focus, textarea:focus{
+  box-shadow:0 0 0 4px rgba(37,99,235,0.12);
+  border-radius:6px;
+}
+
+/* Small utility classes */
+.center{text-align:center}
+
+/* Print friendly */
+@media print{
+  body{background:#fff}
+  section{box-shadow:none;border:1px solid #ddd}
+}

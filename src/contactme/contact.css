@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.contact-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(204, 204, 195);
+
+}
+
+.contact-container main{
+    width: 60%;
+}
+.contact-container h1{
+    margin-top: 2rem;
+}
+.contact-container h1, .success-msg{
+    text-align: center;
+}
+.success-msg{
+    height: 1.5rem;
+    color: rgb(66, 66, 198);
+}
+.contact-container div label{
+    font-size: large;
+    display: block;
+    margin: 0.5rem 0 0.25rem 0;
+}
+.contact-container div .select-label{
+    display: inline-block;
+}
+.contact-container div input, .contact-container div textarea{
+    font-size: medium;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 0;
+}
+.contact-container div input:focus, 
+.contact-container div textarea:focus, 
+.contact-container div select:hover{
+    border: 1px solid gray;
+}
+.error{
+    color: red;
+    margin: 0.25rem 0 1rem 0;
+    height: 1.5rem;
+}
+.contact-container button{
+    background-color: rgb(102, 102, 223);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: larger;
+    color: black;
+}
+
+@media screen and (max-width: 800px) {
+    .contact-container main{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .contact-container main{
+        width: 100%;
+    }
+}

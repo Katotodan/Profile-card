@@ -11,6 +11,11 @@ describe('Profile card static content', () => {
   let container;
 
   beforeAll(() => {
+    // Use fake timers to control the setInterval in script.js
+    jest.useFakeTimers();
+    // Start with a deterministic Date.now value
+    jest.spyOn(Date, 'now').mockImplementation(() => 1000);
+
     const html = fs.readFileSync(path.resolve(__dirname, '..', 'index.html'), 'utf8');
     document.documentElement.innerHTML = html;
     // If script.js manipulates DOM on load, require it here (safe-guard)
@@ -50,5 +55,46 @@ describe('Profile card static content', () => {
     const twitter = getByTestId(container, 'test-user-social-twitter');
     expect(linkedin.querySelector('a')).toHaveAttribute('href', expect.stringContaining('linkedin.com'));
     expect(twitter.querySelector('a')).toHaveAttribute('href', expect.stringContaining('x.com'));
+  });
+
+  test('current-time element exists and updates on interval', () => {
+    const timeEl = getByTestId(container, 'test-user-time');
+    // Initial value was set by script.js using mocked Date.now
+    expect(timeEl.textContent).toBe('1000');
+
+    // Change Date.now and advance timers so the interval callback runs
+    Date.now.mockImplementation(() => 2000);
+    jest.advanceTimersByTime(1100);
+    expect(timeEl.textContent).toBe('2000');
+  });
+
+  afterAll(() => {
+    // Restore timers and Date.now
+    jest.useRealTimers();
+    if (Date.now && Date.now.mockRestore) Date.now.mockRestore();
+  });
+});
+
+describe('About page content', () => {
+  let aboutContainer;
+  beforeAll(() => {
+    const aboutHtml = fs.readFileSync(path.resolve(__dirname, '..', 'src', 'aboutme', 'about.html'), 'utf8');
+    document.documentElement.innerHTML = aboutHtml;
+    aboutContainer = document.body;
+  });
+
+  test('renders about page and bio', () => {
+    const aboutPage = getByTestId(aboutContainer, 'test-about-page');
+    const bio = getByTestId(aboutContainer, 'test-about-bio');
+    expect(aboutPage).toBeInTheDocument();
+    expect(bio).toBeInTheDocument();
+    expect(bio.textContent.trim().length).toBeGreaterThan(0);
+  });
+
+  test('goals and confidence lists exist', () => {
+    const goals = getByTestId(aboutContainer, 'test-about-goals');
+    const confidence = getByTestId(aboutContainer, 'test-about-confidence');
+    expect(goals.querySelectorAll('li').length).toBeGreaterThanOrEqual(1);
+    expect(confidence.querySelectorAll('li').length).toBeGreaterThanOrEqual(1);
   });
 });
