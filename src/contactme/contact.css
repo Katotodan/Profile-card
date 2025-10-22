@@ -66,6 +66,9 @@
 }
 @media screen and (max-width: 600px) {
     .contact-container main{
+        padding: 0 1rem;
+    }
+    .contact-container main{
         width: 100%;
     }
 }
